@@ -4,13 +4,10 @@ def calculate_time(func):
         x = time.time()
         func()
         y = time.time()
-        print('Time it takes to execute is:', y-x, 'seconds')
+        print('Total Time', y-x, 'seconds')
     return wrapper
 
 def test():
-    print('Hi, how are you?')
+    time.sleep(5)
 test = calculate_time(test)
 test()
-
-
-    
