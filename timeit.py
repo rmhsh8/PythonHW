@@ -1,14 +1,15 @@
 import time
+
 def calculate_time(func):
     def wrapper():
-        x = func()
-        input()
-        y = func()
-        print('Total Time', y-x, 'seconds')
+        x = time.time()
+        func()
+        y = time.time()
+        print('Total Time', y-x)
     return wrapper
 
 def test():
-    return time.time()
+    time.sleep(10)
 
 
 test = calculate_time(test)
