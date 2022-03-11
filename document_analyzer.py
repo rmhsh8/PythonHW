@@ -4,7 +4,6 @@ text = open("document.txt", encoding = "utf8")
 for line in text:
     line = line.translate(line.maketrans("", "", string.punctuation))
     line = line.strip()
-    line = line.lower()
     words = line.split(" ")
     for word in words:
         if word in d:
@@ -14,7 +13,8 @@ for line in text:
 x = {}   
 for key in list(d.keys()):
     x[key] = d[key]
-sort = sorted(x.items(), key = lambda x:x[1], reverse = True)
+sort = sorted(x.items(), key = lambda x:(-x[1],x[0]))
 top5 = list(sort)[:5]
+print(" ")
 for i in top5:
-    print(i[0], ":", i[1])
+    print(f"{i[0]}: {i[1]}")
