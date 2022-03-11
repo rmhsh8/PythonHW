@@ -1,15 +1,13 @@
-import time
-def calculate_time(func):
-    def wrapper():
-        x = func()
-        input()
-        y = func()
-        print('Total Time', y-x, 'seconds')
-    return wrapper
+def sort_list(lst):
 
-def test():
-    return time.time()
+    j = len(lst)
+    i = 1
 
-
-test = calculate_time(test)
-test()
+    while (i < j):
+        d = 0
+        while (d <= j-1):
+            if (lst[i] > lst[d]):
+                lst[i], lst[d] = lst[d], lst[i]
+            d += 1
+        i += 1
+    return lst
