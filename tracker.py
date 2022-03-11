@@ -1,17 +1,15 @@
-def doubler(func):
-    def math():
-        x = func()
-        return x ** 3
-    return math
-def dec(func):
-    def math():
-        x = func()
-        return x // 2
-    return math
-    
-@doubler
-@dec
-def solve():
-    x = 9
-    return x
-print(solve())
+def func_counter(func):
+    def wrapper(*args,**kw):
+        result = func()
+        wrapper.counter += 1
+        print(f'Number of times executed: {wrapper.counter}')
+        return result
+    wrapper.counter = 0
+    return wrapper
+
+
+@func_counter
+def foo():
+    print("Hello, World!")
+foo()
+foo()
